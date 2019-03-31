@@ -1,0 +1,27 @@
+%html
+  %head
+    %title BlogMaker
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag('application', media: 'all', 'data-turbolinks-track': 'reload')
+    = stylesheet_link_tag('application', 'https://fonts.googleapis.com/css?family=Raleway:400,700')
+    = javascript_include_tag('application', 'data-turbolinks-track': 'reload')
+
+  %body
+    #sidebar
+      %ul
+        %li.category= link_to('Blog',root_path)
+        %li= link_to('Posts',root_path)
+        %li= link_to('About',root_path)
+      %p.sign_in User Login
+    #main_content
+      #header
+        %p Post Feed
+        .buttons
+          %button.button= link_to('Make Post', new_post_path)
+          %button.button= link_to('Logout', new_post_path)
+
+      - flash.each do |name,msg|
+        = content_tag(:div, msg, class: 'alert')
+
+      = yield
