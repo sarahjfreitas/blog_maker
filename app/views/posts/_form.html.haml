@@ -6,10 +6,10 @@
       - @post.errors.full_messages.each do |message|
         %li= message 
   %p
-    = f.label :title
-    = f.text_field :title
+    = form.label :title
+    = form.text_field :title
   %p
-    = f.label :body
-    = f.text_area :body
+    = form.label :body
+    = form.text_area :body
   %p
     = form.submit
